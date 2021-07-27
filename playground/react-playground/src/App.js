@@ -15,9 +15,7 @@ function App() {
   const [counter, setCounter] = useState(0)
   const [left, setLeft] = useState(0)
   const [right, setRight] = useState(0)
-  // const [clicks, setClicks] = useState({ left: 0, right: 0 })
   const [allClicks, setAllClicks] = useState([])
-  // const { left, right } = clicks
   const name = 'Peter'
   const age = 10
 
@@ -47,6 +45,26 @@ function App() {
     setAllClicks(allClicks.concat('L'))
   }
 
+  const handleResetClick = () => {
+    setAllClicks([])
+    setLeft(0)
+    setRight(0)
+  }
+
+  // const helloHandler = (who) => {
+  //   const hello = () => console.log(`Hello ${who}`)
+  //   return hello
+  // }
+
+  // helloHandler modified
+  const helloHandler2 = (who) => () => console.log(`Hello ${who} 👋`)
+
+  // const setValueToCounter = (value) => () => {
+  //   setCounter(value)
+  // }
+
+  const setValueToCounter2 = (val) => () => setCounter(val)
+
   return (
     <div className="App">
       <h1>Greetings</h1>
@@ -69,6 +87,21 @@ function App() {
         handleClick={resetCounter}
       />
       <br />
+      <Button
+        message="Set to 1000"
+        styles={{ color: 'black' }}
+        handleClick={setValueToCounter2(1000)}
+      />
+      <Button
+        message="Set to 100"
+        styles={{ color: 'black' }}
+        handleClick={setValueToCounter2(100)}
+      />
+      <Button
+        message="Plus 1"
+        styles={{ color: 'black' }}
+        handleClick={setValueToCounter2(counter + 1)}
+      />
       <br />
       <div>
         {left}
@@ -90,6 +123,21 @@ function App() {
       </div>
       <br />
       <History clicks={allClicks} />
+      <button
+        className="counterButton"
+        style={{ color: 'black' }}
+        onClick={handleResetClick}
+      >
+        Reset Click History
+      </button>
+      <br />
+      <button
+        className="counterButton"
+        style={{ color: 'black' }}
+        onClick={helloHandler2('Joe')}
+      >
+        Hello
+      </button>
     </div>
   )
 }
