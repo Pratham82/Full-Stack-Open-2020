@@ -4,6 +4,13 @@ import { Hello } from './components/Hello.jsx'
 import { Display } from './components/Display.jsx'
 import { Button } from './components/Button.jsx'
 
+const History = ({ clicks }) =>
+  clicks.length === 0 ? (
+    <div>The app is used by pressing the buttons</div>
+  ) : (
+    <div>Button press history: {clicks.join(' ')}</div>
+  )
+
 function App() {
   const [counter, setCounter] = useState(0)
   const [left, setLeft] = useState(0)
@@ -81,7 +88,8 @@ function App() {
         </button>
         {right}
       </div>
-      <p>{allClicks.join(' ')}</p>
+      <br />
+      <History clicks={allClicks} />
     </div>
   )
 }
