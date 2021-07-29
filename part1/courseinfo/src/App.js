@@ -26,7 +26,7 @@ const App = () => {
     ],
   }
   const { name, parts } = course
-  const Header = ({ course }) => <h1>{name}</h1>
+  const Header = ({ course }) => <h1>{course}</h1>
   const Content = ({ parts }) => (
     <>
       <Part name={parts[0].name} exercises={parts[0].exercises} />
