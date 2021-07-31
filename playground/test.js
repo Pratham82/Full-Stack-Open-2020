@@ -117,6 +117,10 @@ prathamesh.greet()
 const josh = new Person('Josh', 20)
 josh.greet()
 
+// Say you wanted to write a function to take in a string and have that string reversed.
+const revStr = (str) => str.split('').reverse().join('')
+console.log(revStr('prathamesh'));
+
 /*
 Types in JS
 Boolean
